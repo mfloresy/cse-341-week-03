@@ -3,7 +3,7 @@ const mongodb = require("../database/init")
 const objectId = require("mongodb").ObjectId
 
 const getAll = async (req, res) => {
-    //#swagger.tags=['Students]
+    //#swagger.tags=['Students']
     const result = await mongodb.getDB().db().collection("contacts").find()
     result.toArray().then((students)=>{
         res.setHeader("Content-Type", "application/json")
@@ -12,7 +12,7 @@ const getAll = async (req, res) => {
 }
 
 const getOne = async (req, res) => {
-    //#swagger.tags=['Students]
+    //#swagger.tags=['Students']
     const studentId = new objectId(req.params.id)
     const result = await mongodb.getDB().db().collection("contacts").find({_id: studentId})
     result.toArray().then((students)=>{
@@ -22,7 +22,7 @@ const getOne = async (req, res) => {
 }
 
 const createStudent = async (req, res) => {
-    //#swagger.tags=['Students]
+    //#swagger.tags=['Students']
     const student = {
         firstName: req.body.firstName, 
         lastName: req.body.lastName, 
@@ -60,7 +60,7 @@ const updateStudent = async (req, res) => {
 }
 
 const deleteStudent = async (req, res) => {
-    //#swagger.tags=['Students]
+    //#swagger.tags=['Students']
     const result = await mongodb.getDB().db().collection("contacts").deleteOne({_id: new objectId(req.params.id)}, true)
     if (result.acknowledged){
         res.status(204).json()
