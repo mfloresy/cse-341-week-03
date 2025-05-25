@@ -11,10 +11,11 @@
     "https"
   ],
   "paths": {
-   
     "/students/": {
       "get": {
-        "tags": [],
+        "tags": [
+          "Students"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -26,8 +27,42 @@
         }
       },
       "post": {
-        "tags": [],
+        "tags": [
+          "Students"
+        ],
         "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "example": "any"
+                },
+                "lastName": {
+                  "example": "any"
+                },
+                "email": {
+                  "example": "any"
+                },
+                "favoriteColor": {
+                  "example": "any"
+                },
+                "birthday": {
+                  "example": "any"
+                },
+                "universityMajor": {
+                  "example": "any"
+                },
+                "nationlity": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
         "responses": {
           "204": {
             "description": "No Content"
@@ -40,7 +75,9 @@
     },
     "/students/{id}": {
       "get": {
-        "tags": [],
+        "tags": [
+          "Students"
+        ],
         "description": "",
         "produces": [
           "application/json"
@@ -54,11 +91,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "200": {
+            "description": "OK"
           }
         }
       },
@@ -115,7 +149,9 @@
         }
       },
       "delete": {
-        "tags": [],
+        "tags": [
+          "Students"
+        ],
         "description": "",
         "parameters": [
           {
@@ -126,8 +162,11 @@
           }
         ],
         "responses": {
-          "default": {
-            "description": ""
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
